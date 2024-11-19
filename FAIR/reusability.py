@@ -6,11 +6,15 @@ This module implements the assesments of Reusability principle of FAIR data.
 """
 
 import sys
+
+import pandas as pd
+from SPARQLWrapper import SPARQLWrapper
+
 import utils
 sys.path.append('../project')
 
 
-def publisher_provenance_contant(connection, datasets_query, prefixes=None):
+def publisher_provenance_contant(connection: SPARQLWrapper, datasets_query: str, prefixes: str = None) -> pd.DataFrame:
     """
     Check if the distributions contain publisher, provenance and contact information
     :param connection: SPRAQLWrapper connection

@@ -5,6 +5,9 @@ FAIR.accessibility
 This module implements the assesments of Accessibility principle of FAIR data.
 """
 import sys
+
+from SPARQLWrapper import SPARQLWrapper
+
 import utils
 import requests
 import pandas as pd
@@ -12,7 +15,7 @@ import pandas as pd
 sys.path.append('../project')
 
 
-def is_url_ok(url):
+def is_url_ok(url: str) -> bool:
     """
     Check if a URL is valid and accessible.
     Allows redirects (HTTP 301 and 302).
@@ -24,7 +27,7 @@ def is_url_ok(url):
         return False
 
 
-def distribution_links(connection, datasets_query, prefixes=None):
+def distribution_links(connection: SPARQLWrapper, datasets_query: str, prefixes: str = None) -> pd.DataFrame:
     """
     Check if the distributions contain accessURLs
     and optionally if they can be downloaded directly

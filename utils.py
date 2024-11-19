@@ -1,8 +1,8 @@
-from SPARQLWrapper import JSON
+from SPARQLWrapper import JSON, SPARQLWrapper
 import pandas as pd
 
 
-def SPARQL_to_df(connection, query, prefixes=None):
+def SPARQL_to_df(connection: SPARQLWrapper, query: str, prefixes: str = None) -> pd.DataFrame:
     """
     Execute a SPARQL query and return the result as a pandas DataFrame.
     """
